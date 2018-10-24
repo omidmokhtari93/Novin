@@ -23,7 +23,7 @@
                  url('fonts/BYekan.ttf') format('truetype'),
                  url('fonts/BYekan.svg') format('svg');
         }
-
+        body{ padding: 10px 20px;}
         html * {
             direction: rtl;
             font-weight: 800;
@@ -42,7 +42,7 @@
         table {
             font-family: yekan;
             text-align: center;
-            font-size: 10pt;
+            font-size: 8pt;
             font-weight: 800;
             border: 1px solid rgb(198, 205, 213);
             border-collapse: collapse;
@@ -112,6 +112,7 @@
     <div style="width: 100%; text-align: center !important;" id="outTable">
         <div id="htmlout" style="display: inline-block;"></div>
     </div>
+    <script src="Scripts/xlsxworker.js"></script>
     <script src="Scripts/shim.js"></script>
     <script src="Scripts/xlsx.full.min.js"></script>
     <script src="Scripts/excelimport.js"></script>

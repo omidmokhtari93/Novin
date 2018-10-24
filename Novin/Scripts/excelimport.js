@@ -64,6 +64,7 @@ var process_wb = (function () {
             var htmlstr = X.write(workbook, { sheet: sheetName, type: 'string', bookType: 'html' });
             HTMLOUT.innerHTML += htmlstr;
         });
+
         var table = $('table');
         var firstrow = table.find('tr:first');
         var cells = firstrow.find('td').length;
@@ -73,6 +74,7 @@ var process_wb = (function () {
         }
         header += '</tr>';
         $(firstrow).before(header);
+
         return "";
     };
 

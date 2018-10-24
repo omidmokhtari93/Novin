@@ -46,5 +46,7 @@
     </script>
 </asp:Content>
 <asp:Content runat="server" ID="contet2" ContentPlaceHolderID="SideContent">
-    123
+    <label style="display: block; text-align: right;">
+        
+    </label>
 </asp:Content>
