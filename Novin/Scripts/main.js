@@ -106,13 +106,27 @@ function GtoJ(a, r, s) {
 function AjaxCall(obj) {
     $.ajax({
         type: "POST",
-        url: obj[0].url,
-        data: JSON.stringify(obj[0].param[0]),
+        url: 'WebService.asmx/' + obj.url,
+        data: JSON.stringify(obj.param),
         contentType: "application/json;",
         dataType: "json",
-        success: obj[0].func,
+        success: obj.func,
         error: function () {
             console.log("error");
         }
     });
+}
+
+function TableToJson(ele) {
+    var element;
+    if (typeof ele == "string") { element = $("#" + ele); } else { element = ele; }
+    var myRows = {};
+    $(element).find('tr').each(function (index) {
+        var $cells = $(this).find("td");
+        myRows[index] = {};
+        $cells.each(function (cellIndex) {
+            myRows[index][cellIndex] = $(this).html();
+        });
+    });
+    return myRows;
 }

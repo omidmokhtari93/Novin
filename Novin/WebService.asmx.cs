@@ -132,5 +132,12 @@ namespace Novin
                 return new JavaScriptSerializer().Serialize(new { flag = 0, message = "!خطا در ارسال ایمیل" });
             }
         }
+
+        [WebMethod]
+        public string SaveBimeInfo(string[] str)
+        {
+            var rows = str;
+            return "";
+        }
     }
 }

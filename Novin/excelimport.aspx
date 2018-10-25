@@ -108,7 +108,9 @@
     <input type="checkbox" name="useworker" checked style="display: none;"/>
     <input type="checkbox" name="userabs" checked style="display: none;"/>
     <pre id="out" style="display: none;"></pre>
-    <button type="button" onclick="GetData();" style="margin: 5px;">ثبت اطلاعات</button>
+    <button type="button" onclick="GetData();" style="margin: 5px;">حذف ستون های اضافی</button>
+    <button type="button" style="margin: 5px;" onclick="GetTableData();">ثبت اطلاعات بیمه گذار</button>
+    <button type="button" style="margin: 5px;" >ثبت اطلاعات کاربری مشتریان</button>
     <div style="width: 100%; text-align: center !important;" id="outTable">
         <div id="htmlout" style="display: inline-block;"></div>
     </div>
@@ -141,6 +143,19 @@
                 }
                 dataa.push(data);
                 data = [];
+            }
+        }
+
+        function GetTableData() {
+            var dataa = TableToJson($('table'));
+            var e = {
+                url: 'SaveBimeInfo',
+                param: { str: dataa },
+                func: done
+            }
+            AjaxCall(e);
+            function done() {
+                
             }
         }
     </script>

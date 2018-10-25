@@ -28,12 +28,11 @@
             }
             var usernamee = $('#UserName').val();
             var passwordd = $('#Password').val();
-            var data = [];
-            data.push({
-                url: 'WebService.asmx/Authentication',
+            var data = {
+                url: 'Authentication',
                 param: [{ username: usernamee, password: passwordd }],
-                func:auth
-            });
+                func: auth
+            };
             AjaxCall(data);
             function auth(e) {
                 var d = JSON.parse(e.d);
