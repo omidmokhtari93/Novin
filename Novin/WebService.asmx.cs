@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
@@ -134,10 +135,25 @@ namespace Novin
         }
 
         [WebMethod]
-        public string SaveBimeInfo(string[] str)
+        public void SaveBimeInfo(List<BimeInfo> data)
         {
-            var rows = str;
-            return "";
+            _cnn.Open();
+            var re = new Regex(@"([^0-9]+)(\d+)");
+            for (var i = 2; i < data.Count; i++)
+            {
+                var result = re.Match(data[i].Person);
+                var name = result.Groups[1].Value;
+                var removePlace = name.Length - 3;
+                name = name.Remove(removePlace, 2);
+                var total = data[i].Total.Replace(",", "");
+                var code = Convert.ToInt32(result.Groups[2].Value);
+                if (data[i].Status != "تأييد شده") continue;
+                var ins = new SqlCommand("if (select count(id) from bimeinfo where idcode = " + Convert.ToInt32(data[i].IdCode) + ") > 0 Begin select null End " +
+                                         "Else Begin INSERT INTO [dbo].[bimeinfo]([idcode],[type],[name],[code],[total],[date])VALUES" +
+                                         "(" + Convert.ToInt32(data[i].IdCode) + ",N'" + data[i].Type + "',N'" + name.Trim() + "'," + code + "," +
+                                         "" + Convert.ToInt32(total) + ",'" + data[i].Date + "')End", _cnn);
+                ins.ExecuteNonQuery();
+            }
         }
     }
 }

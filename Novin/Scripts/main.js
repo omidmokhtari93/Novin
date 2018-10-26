@@ -103,16 +103,16 @@ function GtoJ(a, r, s) {
     for (var I = 0; 11 > I && v >= jalali_days[I]; ++I) v -= jalali_days[I]; var y = I + 1, _ = v + 1; return [o, y, _]
 } var gorgian_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], jalali_days = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
 
-function AjaxCall(obj) {
+function AjaxCall(e) {
     $.ajax({
         type: "POST",
-        url: 'WebService.asmx/' + obj.url,
-        data: JSON.stringify(obj.param),
+        url: 'WebService.asmx/' + e.url,
+        data: JSON.stringify(e.param),
         contentType: "application/json;",
         dataType: "json",
-        success: obj.func,
+        success: e.func,
         error: function () {
-            console.log("error");
+            redalert('n','خطا در ارسال اطلاعات');
         }
     });
 }

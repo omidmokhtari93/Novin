@@ -108,9 +108,9 @@
     <input type="checkbox" name="useworker" checked style="display: none;"/>
     <input type="checkbox" name="userabs" checked style="display: none;"/>
     <pre id="out" style="display: none;"></pre>
-    <button type="button" onclick="GetData();" style="margin: 5px;">حذف ستون های اضافی</button>
-    <button type="button" style="margin: 5px;" onclick="GetTableData();">ثبت اطلاعات بیمه گذار</button>
-    <button type="button" style="margin: 5px;" >ثبت اطلاعات کاربری مشتریان</button>
+    <button type="button" onclick="RemoveRedundantColumn();" style="margin: 5px;">حذف ستون های اضافی</button>
+    <button type="button" style="margin: 5px;" onclick="bimeinfo();">ثبت اطلاعات بیمه گذار</button>
+    <button type="button" style="margin: 5px;" onclick="cusinfo();">ثبت اطلاعات کاربری مشتریان</button>
     <div style="width: 100%; text-align: center !important;" id="outTable">
         <div id="htmlout" style="display: inline-block;"></div>
     </div>
@@ -119,7 +119,11 @@
     <script src="Scripts/xlsx.full.min.js"></script>
     <script src="Scripts/excelimport.js"></script>
     <script>
-        function GetData() {
+        function RemoveRedundantColumn() {
+            if ($('#xlf').val() == '') {
+                redalert('n', 'لطفا فایل اکسل را انتخاب نمایید');
+                return;
+            }
             var checkboxes = $('#outTable').find('input:checkbox:not(:checked)');
             var indexx = [];
             for (var i = 0; i < checkboxes.length; i++) {
@@ -146,16 +150,68 @@
             }
         }
 
-        function GetTableData() {
-            var dataa = TableToJson($('table'));
+        function bimeinfo() {
+            if ($('#xlf').val() == '') {
+                redalert('n', 'لطفا فایل اکسل را انتخاب نمایید');
+                return;
+            }
+            var tabledata = [];
+            var table = $('table')[0];
+            var rows = $('table tr').length;
+            for (var i = 0; i < rows; i++) {
+                tabledata.push({
+                    IdCode: table.rows[i].cells[0].innerHTML,
+                    Status: table.rows[i].cells[1].innerHTML,
+                    Type: table.rows[i].cells[2].innerHTML,
+                    Person: table.rows[i].cells[3].innerHTML,
+                    Total: table.rows[i].cells[4].innerHTML,
+                    Date: table.rows[i].cells[5].innerHTML
+                });
+            }
             var e = {
                 url: 'SaveBimeInfo',
-                param: { str: dataa },
+                param: { data: tabledata },
                 func: done
             }
             AjaxCall(e);
             function done() {
-                
+                table.remove();
+                $('#xlf').val('');
+                greenalert('n','با موفقیت ثبت شد');
+            }
+        }
+
+        function cusinfo() {
+            if ($('#xlf').val() == '') {
+                redalert('n', 'لطفا فایل اکسل را انتخاب نمایید');
+                return;
+            }
+            var tabledata = [];
+            var table = $('table')[0];
+            var rows = $('table tr').length;
+            for (var i = 0; i < rows; i++) {
+                tabledata.push({
+                    Person: table.rows[i].cells[0].innerHTML,
+                    PerType: table.rows[i].cells[1].innerHTML,
+                    OrType: table.rows[i].cells[2].innerHTML,
+                    EcCode: table.rows[i].cells[3].innerHTML,
+                    NaCode: table.rows[i].cells[4].innerHTML,
+                    OrCode: table.rows[i].cells[5].innerHTML,
+                    Province: table.rows[i].cells[6].innerHTML,
+                    City: table.rows[i].cells[7].innerHTML,
+                    Address: table.rows[i].cells[8].innerHTML
+                });
+            }
+            var e = {
+                url: 'SaveBimeInfo',
+                param: { data: tabledata },
+                func: done
+            }
+            AjaxCall(e);
+            function done() {
+                table.remove();
+                $('#xlf').val('');
+                greenalert('n', 'با موفقیت ثبت شد');
             }
         }
     </script>
