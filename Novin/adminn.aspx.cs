@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Novin.Class;
 
 namespace Novin
 {
@@ -11,7 +12,7 @@ namespace Novin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Authentication.ClearAuthentication();
         }
     }
 }

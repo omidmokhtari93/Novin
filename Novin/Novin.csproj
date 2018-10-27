@@ -144,6 +144,7 @@
     <Compile Include="admn\excel.aspx.designer.cs">
       <DependentUpon>excel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\AuthClass.cs" />
     <Compile Include="customer\customers.aspx.cs">
       <DependentUpon>customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
