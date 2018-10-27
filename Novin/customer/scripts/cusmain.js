@@ -106,7 +106,7 @@ function GtoJ(a, r, s) {
 function AjaxCall(e) {
     $.ajax({
         type: "POST",
-        url: '/WebService.asmx/' + e.url,
+        url: 'cuswebser.asmx/' + e.url,
         data: JSON.stringify(e.param),
         contentType: "application/json;",
         dataType: "json",

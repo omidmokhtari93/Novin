@@ -1,0 +1,38 @@
+﻿@font-face {
+                font-family: 'yekan';
+                src: url('/fonts/BYekan.eot'),
+                     url('/fonts/BYekan.eot?#FooAnything') format('embedded-opentype');
+                src: local('☺'), url('/fonts/BYekan.woff') format('woff'),
+                     url('/fonts/BYekan.ttf') format('truetype'),
+                     url('/fonts/BYekan.svg') format('svg');
+            }
+             body{ width: 100%;background-color: #edeef0;}
+            html *{font-family: yekan;}
+            .headerArea{ width: 100%;height: 40px;background-color: #b31d8c;text-align: right}
+            .form-control {border-radius: 2px !important;box-shadow: none!important;font-weight: 800 !important;height: 45px;font-size: 12pt;}
+            label{margin: 0;font-weight: 800!important;}
+            .row{ margin: 0;}
+            .headerTitle{color: white;line-height: 40px;margin-right: 300px;}
+            .subHeader{ height: 90px;background-color: white;width: 100%;border-bottom:1px solid #e4e4e4;text-align: right;position: relative;}
+            .headerimg{ width: auto;height: 70px;line-height: 90px;margin-right: 300px;margin-top: 10px;}
+            .footerArea{ position: absolute;bottom: 0;width: 100%;height: 90px;background-color: #3e3e42;}
+            .mainContent{ border-radius: 5px;border: 1px solid #dcdcdc;height: auto;background-color: #dcdcdc;margin: 10px;text-align: center;height: 550px;padding: 10px;}
+            .sideContent{ border-radius: 5px;border: 1px solid #dcdcdc;height: auto;background-color: white;margin: 10px;text-align: center;}
+            button{ font-weight: 800;font-size: 12pt;}
+            .errorborder {box-shadow: 0px 0px 2px 1px rgba(255,0,0,1)!important;}
+            .loginImage{ width: auto;height: 50px;}
+            .loginBody{ width: 40%;margin: auto;text-align: center;padding: 10px;padding-bottom: 60px;}
+            .greenButton{ background-color: #3cbda1;color: white;border: none;border-radius: 3px;padding: 10px 10px}
+            #imgLoading{ position: absolute;left: 130px;top: 12px;width: 20px;height: 20px;display: none;}
+            .copyright{position: relative; text-align: center;color: #dcdcdc;}
+            .allright{position: fixed; bottom: 0; width:100%;font-size: 10px;font-weight: 800;font-family: tahoma;}
+            .mainborder{ padding: 5px;border: 1px solid #dcdcdc;background-color: white;border-radius: 5px;height: 530px;}
+            .customerLogin{ text-align: right;}
+
+            .headermenu{ float: right;direction: rtl;min-height: 517px;}
+            .headermenu ul{overflow: hidden;list-style-type: none;font-weight: 800;padding: 0;}
+            .headermenu ul li{padding: 5px;color: #717171;cursor: pointer;width: 100%;}
+            .headermenu ul li:hover{ color: black;}
+            .headermenu ul li img{ width: 17px;height: 17px;margin-left: 5px;}
+            .headermenu ul li:last-child {border: none;}
+            h3{ font-weight: 800;position: absolute;top: 10px;left: 700px;}
