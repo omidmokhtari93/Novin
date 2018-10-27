@@ -33,14 +33,14 @@ namespace Novin
         {
             if (AdminLogin(username, password))
             {
-                return new JavaScriptSerializer().Serialize(new { flag = 1, message = "admin.aspx" });
+                return new JavaScriptSerializer().Serialize(new { flag = 1, message = "license.aspx" });
             }
             if (CheckLicense())
             {
                 return new JavaScriptSerializer().Serialize(new { flag = 0, message = "! لطفا با پشتیبان نرم افزار تماس بگیرید" });
             }
             _cnn.Open();
-            var selectUser = new SqlCommand("select id , password , permit , usrlevel  from users where username = '" + username.Trim() + "' ", _cnn);
+            var selectUser = new SqlCommand("select id , password , permit , usrlevel  from admin where username = '" + username.Trim() + "' ", _cnn);
             var rd = selectUser.ExecuteReader();
             if (!rd.Read()) return new JavaScriptSerializer().Serialize(new { flag = 0, message = "! نام کاربری یا رمز عبور اشتباه است" });
             var permit = Convert.ToInt32(rd["permit"]);
@@ -59,7 +59,7 @@ namespace Novin
             var cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName,
                 FormsAuthentication.Encrypt(ticket));
             HttpContext.Current.Response.Cookies.Add(cookie1);
-            return new JavaScriptSerializer().Serialize(new { flag = 1, message = "welcome.aspx" });
+            return new JavaScriptSerializer().Serialize(new { flag = 1, message = "admn/excel.aspx" });
         }
         public bool CheckLicense()
         {
@@ -93,7 +93,7 @@ namespace Novin
         public string SendUserAndPass(string email, string phone)
         {
             _cnn.Open();
-            var selectuserinfo = new SqlCommand("select username , password , name from users where " +
+            var selectuserinfo = new SqlCommand("select username , password , name from admin where " +
                                                        "tell ='" + phone + "' AND email='" + email.Trim() + "' ", _cnn);
             var rd = selectuserinfo.ExecuteReader();
             if (!rd.Read())

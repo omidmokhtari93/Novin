@@ -66,12 +66,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminn.aspx" />
+    <Content Include="admn\contents\excel.css" />
+    <Content Include="admn\contents\mainstyles.css" />
+    <Content Include="admn\excel.aspx" />
+    <Content Include="admn\scripts\excel.js" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\kamadatepicker.css" />
-    <Content Include="excelimport.aspx" />
     <Content Include="Fonts\BYekan.svg" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="images\loading.gif" />
@@ -79,7 +83,7 @@
     <Content Include="images\login.png" />
     <Content Include="images\loginicon.png" />
     <Content Include="images\logo.png" />
-    <Content Include="main.Master" />
+    <Content Include="customer\main.Master" />
     <Content Include="Fonts\BYekan.eot" />
     <Content Include="Fonts\BYekan.ttf" />
     <Content Include="Fonts\BYekan.woff" />
@@ -92,11 +96,14 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Scripts\excelimport.js" />
-    <Content Include="Scripts\shim.js" />
-    <Content Include="Scripts\xlsx.full.min.js" />
-    <Content Include="Scripts\xlsxworker.js" />
+    <Content Include="admn\scripts\excelimport.js" />
+    <Content Include="admn\scripts\shim.js" />
+    <Content Include="admn\scripts\xlsx.full.min.js" />
+    <Content Include="admn\scripts\xlsxworker.js" />
+    <Content Include="license.aspx" />
+    <Content Include="Scripts\admin.js" />
     <Content Include="WebService.asmx" />
+    <Content Include="admn\admaster.Master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -107,9 +114,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin.aspx" />
-    <Content Include="customers.aspx" />
-    <Content Include="Global.asax" />
+    <Content Include="customer\customers.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\kamadatepicker.js" />
@@ -118,42 +123,53 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="adminn.aspx.cs">
+      <DependentUpon>adminn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="adminn.aspx.designer.cs">
+      <DependentUpon>adminn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="customers.aspx.cs">
+    <Compile Include="admn\admaster.Master.cs">
+      <DependentUpon>admaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admn\admaster.Master.designer.cs">
+      <DependentUpon>admaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admn\excel.aspx.cs">
+      <DependentUpon>excel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admn\excel.aspx.designer.cs">
+      <DependentUpon>excel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer\customers.aspx.cs">
       <DependentUpon>customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="customers.aspx.designer.cs">
+    <Compile Include="customer\customers.aspx.designer.cs">
       <DependentUpon>customers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="excelimport.aspx.cs">
-      <DependentUpon>excelimport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="excelimport.aspx.designer.cs">
-      <DependentUpon>excelimport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="main.Master.cs">
+    <Compile Include="customer\main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="main.Master.designer.cs">
+    <Compile Include="customer\main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
     </Compile>
-    <Compile Include="MClass.cs" />
-    <Compile Include="PersianCulture.cs" />
+    <Compile Include="Classes\MClass.cs" />
+    <Compile Include="Classes\PersianCulture.cs" />
+    <Compile Include="license.aspx.cs">
+      <DependentUpon>license.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="license.aspx.designer.cs">
+      <DependentUpon>license.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rijn.cs" />
-    <Compile Include="ShamsiCalendar.cs" />
+    <Compile Include="Classes\rijn.cs" />
+    <Compile Include="Classes\ShamsiCalendar.cs" />
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -161,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="customer\contents\" />
+    <Folder Include="customer\scripts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

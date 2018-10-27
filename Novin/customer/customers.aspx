@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="customers.aspx.cs" Inherits="Novin.customers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="main.Master" AutoEventWireup="true" CodeBehind="customers.aspx.cs" Inherits="Novin.customers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         .customerLogin{margin-left: 250px;width: 100%;margin-bottom: 20px;}
@@ -8,14 +8,14 @@
     </style>
     <div class="headermenu customerLogin" >
         <ul>
-            <li id="login"><img src="images/loginicon.png"/>ورود</li>
-            <li id="register"><img src="images/lock.png"/>عضویت</li>
+            <li id="login"><img src="/images/loginicon.png"/>ورود</li>
+            <li id="register"><img src="/images/lock.png"/>عضویت</li>
         </ul>
     </div>
     <div class="cusloginforms">
         <div id="pnllogin">
             <div>
-                <img src="images/login.png" class="loginImage"/>
+                <img src="/images/login.png" class="loginImage"/>
                 <label style="display: block;">ورود به حساب کاربری</label>
                 <br/>
                 <input class="form-control text-right" id="UserName" required placeholder="نام کاربری"/>
@@ -23,7 +23,7 @@
                 <input class="form-control text-right" type="password" required id="Password" placeholder="رمز عبور"/>    
                 <br/>
                 <button class="greenButton"type="button" style="width: 100%; position: relative;" onclick="login(this);" id="btnLogin">
-                    <img id="imgLoading" src="images/loading.gif"/>
+                    <img id="imgLoading" src="/images/loading.gif"/>
                     ورود
                 </button>
             </div>
@@ -45,8 +45,4 @@
         });
     </script>
 </asp:Content>
-<asp:Content runat="server" ID="contet2" ContentPlaceHolderID="SideContent">
-    <label style="display: block; text-align: right;">
-        
-    </label>
-</asp:Content>
+

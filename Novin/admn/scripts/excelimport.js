@@ -8,7 +8,7 @@ var XW = {
     /* worker message */
     msg: 'xlsx',
     /* worker scripts */
-    worker: 'Scripts/xlsxworker.js'
+    worker: 'scripts/xlsxworker.js'
 };
 var global_wb;
 var process_wb = (function () {

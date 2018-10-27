@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Novin {
+namespace Novin.admn {
     
     
-    public partial class main {
+    public partial class admaster {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,30 @@ namespace Novin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SideContent control.
+        /// headermenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder SideContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder headermenu;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// exit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor exit;
+        
+        /// <summary>
+        /// bodycontent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodycontent;
     }
 }

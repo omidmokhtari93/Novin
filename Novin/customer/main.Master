@@ -4,15 +4,15 @@
 
 <html>
 <head runat="server">
-    <link rel="stylesheet" href="Content/bootstrap.min.css"/>
-    <link rel="stylesheet" href="Content/bootstrap-theme.min.css"/>
-    <script src="Scripts/jquery-3.3.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
-    <script src="Scripts/kamadatepicker.js"></script>
-    <link href="Content/kamadatepicker.css" rel="stylesheet" />
-    <script src="Scripts/main.js"></script>
-    <script src="Scripts/notify.min.js"></script>
+    <link rel="stylesheet" href="/Content/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/Content/bootstrap-theme.min.css"/>
+    <script src="/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="/Scripts/kamadatepicker.js"></script>
+    <link href="/Content/kamadatepicker.css" rel="stylesheet" />
+    <script src="/Scripts/main.js"></script>
+    <script src="/Scripts/notify.min.js"></script>
     <title></title>
 </head>
 <body>
@@ -20,11 +20,11 @@
         <style>
             @font-face {
                 font-family: 'yekan';
-                src: url('fonts/BYekan.eot'),
-                     url('fonts/BYekan.eot?#FooAnything') format('embedded-opentype');
-                src: local('☺'), url('fonts/BYekan.woff') format('woff'),
-                     url('fonts/BYekan.ttf') format('truetype'),
-                     url('fonts/BYekan.svg') format('svg');
+                src: url('/fonts/BYekan.eot'),
+                     url('/fonts/BYekan.eot?#FooAnything') format('embedded-opentype');
+                src: local('☺'), url('/fonts/BYekan.woff') format('woff'),
+                     url('/fonts/BYekan.ttf') format('truetype'),
+                     url('/fonts/BYekan.svg') format('svg');
             }
              body{ width: 100%;background-color: #edeef0;}
             html *{font-family: yekan;}
@@ -59,7 +59,7 @@
             <label class="headerTitle">شرکت بیمه نوین - نمایندگی ایزدی</label>
         </div>
         <div class="subHeader">
-            <img src="images/logo.png" class="headerimg"/>
+            <img src="/images/logo.png" class="headerimg"/>
             <h3>باشگاه مشتریان بیمه نوین</h3>
             <%--<div class="headermenu">
                 <ul>
@@ -70,11 +70,11 @@
         </div>
         <div>
             <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-3 sideContent">
+                <div class="col-lg-2"></div>
+               <%-- <div class="col-lg-3 sideContent">
                     <asp:ContentPlaceHolder runat="server" ID="SideContent"></asp:ContentPlaceHolder>
-                </div>
-                <div class="col-lg-6 mainContent">
+                </div>--%>
+                <div class="col-lg-8 mainContent">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>        
                 </div>

@@ -1,0 +1,59 @@
+﻿.xlsBody {
+    font-weight: 800;
+    text-align: center;
+    direction: rtl;
+}
+table th {
+    text-align: center !important;
+    background-color: #0c0183;
+    color: #fefefe;
+    border: none !important;
+}
+
+table {
+    font-family: yekan;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: 800;
+    border: 1px solid rgb(198, 205, 213);
+    border-collapse: collapse;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 0px;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+}
+
+table tr th { padding: 2px 5px !important; }
+
+table td {
+    padding: 2px 5px !important;
+    vertical-align: middle !important;
+    border: none !important;
+    border-bottom: #c7ced6 1px solid !important;
+    border-top: #c7ced6 1px solid !important;
+    text-shadow: -1px 0px 1px rgba(149, 150, 150, 1);
+}
+
+table td a { margin-top: 5px; }
+
+table td span { margin-top: 5px; }
+
+table tr:nth-child(even) { background-color: #fefefe; }
+
+table tr:nth-child(odd) { background-color: #f7f6fe; }
+
+#drop {
+    border: 2px dashed #bbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    font-size: 20pt;
+    color: #bbb;
+}
+
+#b64data { width: 100%; }
+
+a { text-decoration: none }

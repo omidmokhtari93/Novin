@@ -107,7 +107,7 @@ function AjaxCall(e) {
     $.ajax({
         type: "POST",
         url: 'WebService.asmx/' + e.url,
-        data: JSON.stringify(e.param),
+        data: JSON.stringify(e.param[0]),
         contentType: "application/json;",
         dataType: "json",
         success: e.func,

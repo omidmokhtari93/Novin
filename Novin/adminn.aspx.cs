@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Novin
 {
-    public partial class excelimport : System.Web.UI.Page
+    public partial class adminn : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

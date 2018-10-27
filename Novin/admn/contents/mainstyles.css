@@ -1,0 +1,27 @@
+﻿ @font-face {
+     font-family: 'yekan';
+     src: url('/fonts/BYekan.eot'),
+          url('/fonts/BYekan.eot?#FooAnything') format('embedded-opentype');
+     src: local('☺'), url('/fonts/BYekan.woff') format('woff'),
+          url('/fonts/BYekan.ttf') format('truetype'),
+          url('/fonts/BYekan.svg') format('svg');
+ }
+ body{ width: 100%;background-color: #edeef0;}
+ html *{font-family: yekan;font-weight: 800;}
+ .form-control {border-radius: 2px !important;box-shadow: none!important;font-weight: 800 !important;height: 45px;font-size: 12pt;}
+ label{margin: 0;font-weight: 800!important;}
+ .row{ margin: 0;}
+ button{ font-weight: 800;font-size: 12pt;}
+ .errorborder {box-shadow: 0px 0px 2px 1px rgba(255,0,0,1)!important;}
+ .loginImage{ width: auto;height: 50px;}
+ .loginBody{ width: 25%;margin: auto;text-align: center;padding: 10px;padding-bottom: 60px;}
+ .greenButton{ background-color: #3cbda1;color: white;border: none;border-radius: 3px;padding: 10px 10px}
+ #imgLoading{ position: absolute;left: 100px;top: 12px;width: 20px;height: 20px;display: none;}
+ .bodyArea{ width: 100%;padding: 20px;text-align: center;}
+            
+ .headerNav{ background-color: white;border-bottom: 1px solid darkgray;}
+ .headerNav ul{overflow: hidden;list-style-type: none;font-weight: 800;margin-bottom: 0;}
+ .headerNav ul li{float: right;padding: 3px 20px;border-left: 1px solid darkgray;color: #717171;cursor: pointer;}
+ .headerNav ul li a{ text-decoration: none;}
+ .headerNav ul li a:hover{ color: #3f3f3f;}
+ .headerNav ul li:last-child {border: none;}
