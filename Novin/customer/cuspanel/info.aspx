@@ -9,6 +9,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="sidemenu" runat="server">
     <div id="MenuItems"></div>
     <script>
-        $(function () {$("#MenuItems").load("contents/cusmenu.html");});
+        $(function () { $("#MenuItems").load("../contents/cusmenu.html");});
     </script> 
 </asp:Content>

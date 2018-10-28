@@ -69,6 +69,7 @@
     <Content Include="adminn.aspx" />
     <Content Include="admn\contents\excel.css" />
     <Content Include="admn\contents\mainstyles.css" />
+    <Content Include="admn\editaccount.aspx" />
     <Content Include="admn\excel.aspx" />
     <Content Include="admn\scripts\excel.js" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -80,7 +81,7 @@
     <Content Include="customer\contents\custyles.css" />
     <Content Include="customer\cuswebser.asmx" />
     <Content Include="customer\help.aspx" />
-    <Content Include="customer\info.aspx" />
+    <Content Include="customer\cuspanel\info.aspx" />
     <Content Include="customer\recovery.aspx" />
     <Content Include="customer\register.aspx" />
     <Content Include="customer\scripts\cusmain.js" />
@@ -149,6 +150,13 @@
     <Compile Include="admn\admaster.Master.designer.cs">
       <DependentUpon>admaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="admn\editaccount.aspx.cs">
+      <DependentUpon>editaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admn\editaccount.aspx.designer.cs">
+      <DependentUpon>editaccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admn\excel.aspx.cs">
       <DependentUpon>excel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,11 +176,11 @@
     <Compile Include="customer\help.aspx.designer.cs">
       <DependentUpon>help.aspx</DependentUpon>
     </Compile>
-    <Compile Include="customer\info.aspx.cs">
+    <Compile Include="customer\cuspanel\info.aspx.cs">
       <DependentUpon>info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="customer\info.aspx.designer.cs">
+    <Compile Include="customer\cuspanel\info.aspx.designer.cs">
       <DependentUpon>info.aspx</DependentUpon>
     </Compile>
     <Compile Include="customer\login.aspx.cs">

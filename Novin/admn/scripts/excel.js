@@ -82,8 +82,8 @@ function cusinfo() {
         });
     }
     var e = {
-        url: 'SaveBimeInfo',
-        param: { data: tabledata },
+        url: 'SaveCusInfo',
+        param: { c: tabledata },
         func: done
     }
     AjaxCall(e);

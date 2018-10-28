@@ -5,7 +5,6 @@
         #pnllogin{ width: 40%!important;margin: auto;}
         .cusloginforms{ display: block;width: 100%;}
         .forgetPassArea{width: 100%; text-align: right;padding: 10px 0;font-weight: 800;}
-        #imgLoading{}
     </style>
     <div class="cusloginforms">
         <div id="pnllogin">

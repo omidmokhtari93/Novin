@@ -10,7 +10,7 @@
     var passwordd = $('#Password').val();
     var data = {
         url: 'Authentication',
-        param: [{ username: usernamee, password: passwordd }],
+        param: { username: usernamee, password: passwordd },
         func: auth
     };
     AjaxCall(data);

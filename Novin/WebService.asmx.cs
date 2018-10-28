@@ -142,17 +142,34 @@ namespace Novin
             for (var i = 2; i < data.Count; i++)
             {
                 var result = re.Match(data[i].Person);
-                var name = result.Groups[1].Value;
-                var removePlace = name.Length - 3;
-                name = name.Remove(removePlace, 2);
                 var total = data[i].Total.Replace(",", "");
                 var code = Convert.ToInt32(result.Groups[2].Value);
                 if (data[i].Status != "تأييد شده") continue;
                 var ins = new SqlCommand("if (select count(id) from bimeinfo where idcode = " + Convert.ToInt32(data[i].IdCode) + ") > 0 Begin select null End " +
-                                         "Else Begin INSERT INTO [dbo].[bimeinfo]([idcode],[type],[name],[code],[total],[date])VALUES" +
-                                         "(" + Convert.ToInt32(data[i].IdCode) + ",N'" + data[i].Type + "',N'" + name.Trim() + "'," + code + "," +
+                                         "Else Begin INSERT INTO [dbo].[bimeinfo]([idcode],[type],[code],[total],[date])VALUES" +
+                                         "(" + Convert.ToInt32(data[i].IdCode) + ",N'" + data[i].Type + "'," + code + "," +
                                          "" + Convert.ToInt32(total) + ",'" + data[i].Date + "')End", _cnn);
                 ins.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public void SaveCusInfo(List<CustomerInformation> c)
+        {
+            _cnn.Open();
+            var re = new Regex(@"([^0-9]+)(\d+)");
+            for (int i = 2; i < c.Count; i++)
+            {
+                var result = re.Match(c[i].Person);
+                var name = result.Groups[1].Value;
+                var removePlace = name.Length - 3;
+                name = name.Remove(removePlace, 2);
+                var code = Convert.ToInt32(result.Groups[2].Value);
+                var insCusinfo = new SqlCommand("if (select count(id) from cusinfo where code = "+code+") > 0 begin select null end else begin " +
+                                                "INSERT INTO[dbo].[cusinfo]([name],[code],[pertype],[ortype],[eccode],[nacode],[orcode],[province],[city],[addr])VALUES " +
+                                                "(N'"+name.Trim()+"',"+code+",N'"+c[i].PerType+"',N'"+c[i].OrType+"',"+Convert.ToInt32(c[i].EcCode)+"," +
+                                                "'"+c[i].NaCode+"','"+c[i].OrCode+"',N'"+c[i].Province+"',N'"+c[i].City+"',N'"+c[i].Address+"') end",_cnn);
+                insCusinfo.ExecuteNonQuery();
             }
         }
     }

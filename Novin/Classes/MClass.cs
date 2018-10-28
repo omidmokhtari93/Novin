@@ -18,6 +18,14 @@ namespace Novin
 
     public class CustomerInformation
     {
-
+        public string Person { get; set; }
+        public string PerType { get; set; }
+        public string OrType { get; set; }
+        public string EcCode { get; set; }
+        public string NaCode { get; set; }
+        public string OrCode { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
     }
 }
