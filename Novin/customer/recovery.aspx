@@ -7,6 +7,7 @@
         #pnlrecovery{ width: 40%!important;margin: auto;}
         .passrecovery{ display: block;width: 100%;}
         .forgetPassArea{width: 100%; text-align: right;padding: 10px 0;font-weight: 800;}
+        .loginImage{ width: 30px;height: 30px;}
     </style>
     <div class="passrecovery">
         <div id="pnlrecovery">

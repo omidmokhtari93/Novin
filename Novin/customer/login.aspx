@@ -39,7 +39,7 @@
             var passwordd = $('#Password').val();
             var data = {
                 url: 'CusAuthenticate',
-                param: [{ username: usernamee, password: passwordd }],
+                param: { username: usernamee, password: passwordd },
                 func: auth
             };
             AjaxCall(data);

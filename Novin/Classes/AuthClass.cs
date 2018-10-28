@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using rijndael;
 
 namespace Novin.Class
 {
@@ -15,12 +18,29 @@ namespace Novin.Class
             {
                 var identity = (FormsIdentity)HttpContext.Current.User.Identity;
                 var userData = identity.Ticket.UserData.Split(",".ToCharArray());
-                return true;
+                return !IsAdminUser(userData);
             }
             catch (Exception)
             {
                 return false;
             }
+        }
+
+        private static bool IsAdminUser(string[] userData)
+        {
+            var cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["novin"].ConnectionString);
+            const string initVector = "F4568dgbdfgtt444";
+            const string key = "rdf48JH4";
+            var re = new RijndaelEnhanced(key, initVector);
+            cnn.Open();
+            var select = new SqlCommand("select username , password from admin",cnn);
+            var r = select.ExecuteReader();
+            if (!r.Read()) return true;
+            var username = r["username"].ToString();
+            var password = r["password"].ToString();
+            password = re.Decrypt(password);
+            cnn.Close();
+            return username != userData[0] || password != userData[1];
         }
 
         public static void ClearAuthentication()

@@ -44,8 +44,6 @@ namespace Novin
             var rd = selectUser.ExecuteReader();
             if (!rd.Read()) return new JavaScriptSerializer().Serialize(new { flag = 0, message = "! نام کاربری یا رمز عبور اشتباه است" });
             var permit = Convert.ToInt32(rd["permit"]);
-            var userId = Convert.ToInt32(rd["id"]);
-            var userLevel = Convert.ToInt32(rd["usrlevel"]);
             var userPassword = rd["password"].ToString();
             if (permit == 0)
             {
@@ -55,7 +53,7 @@ namespace Novin
             var decPass = re.Decrypt(userPassword);
             if (decPass != password.Trim()) return new JavaScriptSerializer().Serialize(new { flag = 0, message = "! نام کاربری یا رمز عبور اشتباه است" });
             var ticket = new FormsAuthenticationTicket(1, username.Trim(), DateTime.Now,
-                DateTime.Now.AddMinutes(60), false, userId + "," + userLevel);
+                DateTime.Now.AddMinutes(60), false, username + "," + password);
             var cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName,
                 FormsAuthentication.Encrypt(ticket));
             HttpContext.Current.Response.Cookies.Add(cookie1);
@@ -87,6 +85,29 @@ namespace Novin
                 FormsAuthentication.Encrypt(adminTicket));
             HttpContext.Current.Response.Cookies.Add(adminCookie);
             return true;
+        }
+
+        [WebMethod]
+        public string SendMessage(string phone)
+        {
+            _cnn.Open();
+            var selphone = new SqlCommand("select tell from admin",_cnn);
+            var r = selphone.ExecuteReader();
+            if (r.Read())
+            {
+                var adminPhone = r["tell"].ToString();
+                if (adminPhone == phone)
+                {
+                    SendMessageToAdmin();
+                    return new JavaScriptSerializer().Serialize(new { flag = 1, message = "رمز عبور با موفقیت برای شما ارسال شد" });
+                }
+            }
+            return new JavaScriptSerializer().Serialize(new { flag = 0, message = "شماره موبایل وارد شده در سامانه ثبت نمی باشد" });
+        }
+
+        private void SendMessageToAdmin()
+        {
+            
         }
 
         [WebMethod]

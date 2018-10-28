@@ -114,6 +114,7 @@
     <Content Include="images\logout.png" />
     <Content Include="images\question.png" />
     <Content Include="license.aspx" />
+    <Content Include="passrecovery.aspx" />
     <Content Include="Scripts\admin.js" />
     <Content Include="WebService.asmx" />
     <Content Include="admn\admaster.Master" />
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="license.aspx.designer.cs">
       <DependentUpon>license.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="passrecovery.aspx.cs">
+      <DependentUpon>passrecovery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="passrecovery.aspx.designer.cs">
+      <DependentUpon>passrecovery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\rijn.cs" />

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Novin.Class;
 using rijndael;
 
 namespace Novin.admn
@@ -17,6 +18,10 @@ namespace Novin.admn
         private const string Key = "rdf48JH4";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Authentication.IsAuthenticated())
+            {
+                Response.Redirect("../adminn.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 GetUserDetails();
