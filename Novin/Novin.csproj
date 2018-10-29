@@ -72,6 +72,7 @@
     <Content Include="admn\editaccount.aspx" />
     <Content Include="admn\excel.aspx" />
     <Content Include="admn\scripts\excel.js" />
+    <Content Include="admn\smspanel.aspx" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="admn\excel.aspx.designer.cs">
       <DependentUpon>excel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admn\smspanel.aspx.cs">
+      <DependentUpon>smspanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admn\smspanel.aspx.designer.cs">
+      <DependentUpon>smspanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\AuthClass.cs" />
     <Compile Include="customer\cuswebser.asmx.cs">

@@ -22,23 +22,24 @@
     </div>
     <script>
         function SendMessage(btn) {
+            var txt = $('#txtPhone');
             if (CheckRequiredFields('messagearea')) {
-                redalert('n', 'لطفا شماره تلفن همرا خود را وارد کنید');
+                ElementRedalert(txt,'right center', 'لطفا شماره تلفن همرا خود را وارد کنید');
                 return;
             }
             var e = {
                 url: 'SendMessage',
-                param: { phone: $('#txtPhone').val() },
+                param: { phone: txt.val() },
                 func: status
             };
             AjaxCall(e);
             function status(e) {
                 var d = JSON.parse(e.d);
                 if (d.flag === 0) {
-                    ElementRedalert($('#txtPhone'), 'right center', d.message);
+                    ElementRedalert(txt, 'right center', d.message);
                 } else {
                     ElementGreenalert(btn, 'bottom center', d.message);
-                    $('#txtPhone').val('');
+                    txt.val('');
                 }
             }
         }

@@ -24,6 +24,7 @@
                     <div class="headerNav">
                         <ul>
                             <li><a href="excel.aspx">آپلود فایل اکسل</a></li>
+                            <li><a href="smspanel.aspx">SMS پنل</a></li>
                             <li><a href="editaccount.aspx">ویرایش کاربر</a></li>
                             <li><a runat="server" id="exit" OnServerClick="exit_OnServerClick">خروج</a></li>
                         </ul>

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Security;
 using rijndael;
@@ -62,6 +65,28 @@ namespace Novin.Class
             httpcontext.Cache.SetCacheability(HttpCacheability.NoCache);
             httpcontext.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
             httpcontext.Cache.SetNoStore();
+        }
+    }
+
+    public class Sendsms
+    {
+        public static string WebRequestpost(string url, string parameter)
+        {
+            var outStr = "";
+            var buffer = Encoding.ASCII.GetBytes(parameter);
+            var webReq = (HttpWebRequest)WebRequest.Create(url);
+            webReq.Method = "POST";
+            webReq.ContentType = "application/x-www-form-urlencoded";
+            webReq.ContentLength = buffer.Length;
+            var postData = webReq.GetRequestStream();
+            postData.Write(buffer, 0, buffer.Length);
+            postData.Close();
+            var webResp = (HttpWebResponse)webReq.GetResponse();
+            var answer = webResp.GetResponseStream();
+            var answerr = new StreamReader(answer, Encoding.UTF8);
+            if (outStr != "") { }
+            outStr = answerr.ReadToEnd();
+            return outStr;
         }
     }
 }

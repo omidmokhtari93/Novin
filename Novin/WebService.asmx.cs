@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
 using System.Web.Services;
+using Novin.Class;
 using rijndael;
 
 namespace Novin
@@ -91,23 +92,26 @@ namespace Novin
         public string SendMessage(string phone)
         {
             _cnn.Open();
-            var selphone = new SqlCommand("select tell from admin",_cnn);
+            var re = new RijndaelEnhanced(Key,InitVector);
+            var selphone = new SqlCommand("select tell , password from admin",_cnn);
             var r = selphone.ExecuteReader();
             if (r.Read())
             {
                 var adminPhone = r["tell"].ToString();
                 if (adminPhone == phone)
                 {
-                    SendMessageToAdmin();
+                    SendMessageToAdmin(re.Decrypt(r["password"].ToString()));
                     return new JavaScriptSerializer().Serialize(new { flag = 1, message = "رمز عبور با موفقیت برای شما ارسال شد" });
                 }
             }
             return new JavaScriptSerializer().Serialize(new { flag = 0, message = "شماره موبایل وارد شده در سامانه ثبت نمی باشد" });
         }
 
-        private void SendMessageToAdmin()
+        private void SendMessageToAdmin(string message)
         {
-            
+            var auth = "username=COMPUTERTAK&password=azam31544747&to=+989190152706&text=";
+            var address = "http://smsban.ir/API/default.aspx";
+            var outRequest = Sendsms.WebRequestpost(address, auth + message);
         }
 
         [WebMethod]
