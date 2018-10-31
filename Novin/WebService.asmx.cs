@@ -12,6 +12,7 @@ using System.Web.Script.Serialization;
 using System.Web.Security;
 using System.Web.Services;
 using Novin.Class;
+using Novin.Classes;
 using rijndael;
 
 namespace Novin
@@ -100,18 +101,11 @@ namespace Novin
                 var adminPhone = r["tell"].ToString();
                 if (adminPhone == phone)
                 {
-                    SendMessageToAdmin(re.Decrypt(r["password"].ToString()));
+                    Sendsms.ToAdmin(re.Decrypt(r["password"].ToString()) , adminPhone);
                     return new JavaScriptSerializer().Serialize(new { flag = 1, message = "رمز عبور با موفقیت برای شما ارسال شد" });
                 }
             }
             return new JavaScriptSerializer().Serialize(new { flag = 0, message = "شماره موبایل وارد شده در سامانه ثبت نمی باشد" });
-        }
-
-        private void SendMessageToAdmin(string message)
-        {
-            var auth = "username=COMPUTERTAK&password=azam31544747&to=+989190152706&text=";
-            var address = "http://smsban.ir/API/default.aspx";
-            var outRequest = Sendsms.WebRequestpost(address, auth + message);
         }
 
         [WebMethod]
@@ -175,6 +169,9 @@ namespace Novin
                                          "(" + Convert.ToInt32(data[i].IdCode) + ",N'" + data[i].Type + "'," + code + "," +
                                          "" + Convert.ToInt32(total) + ",'" + data[i].Date + "')End", _cnn);
                 ins.ExecuteNonQuery();
+                var insType = new SqlCommand("if(SELECT count(id) FROM points where bimetype like N'%"+data[i].Type+"%') > 0 " +
+                                             "begin select null end else begin insert into points(bimetype)values(N'"+data[i].Type+"') end", _cnn);
+                insType.ExecuteNonQuery();
             }
         }
 

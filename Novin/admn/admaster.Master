@@ -14,7 +14,7 @@
     <link href="/Content/kamadatepicker.css" rel="stylesheet" />
     <script src="/Scripts/main.js"></script>
     <script src="/Scripts/notify.min.js"></script>
-    <link href="contents/mainstyles.css" rel="stylesheet" />
+    <link href="contents/mainstyles.css" rel="stylesheet"/>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,6 +24,7 @@
                     <div class="headerNav">
                         <ul>
                             <li><a href="excel.aspx">آپلود فایل اکسل</a></li>
+                            <li><a href="points.aspx">امتیازات</a></li>
                             <li><a href="smspanel.aspx">SMS پنل</a></li>
                             <li><a href="editaccount.aspx">ویرایش کاربر</a></li>
                             <li><a runat="server" id="exit" OnServerClick="exit_OnServerClick">خروج</a></li>

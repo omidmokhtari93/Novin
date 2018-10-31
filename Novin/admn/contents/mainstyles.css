@@ -25,3 +25,44 @@
  .headerNav ul li a{ text-decoration: none;}
  .headerNav ul li a:hover{ color: #3f3f3f;}
  .headerNav ul li:last-child {border: none;}
+ .admintable th {
+     text-align: center !important;
+     background-color: #0c0183;
+     color: #fefefe;
+     border: none !important;
+ }
+
+ .admintable {
+     width: 100%;
+     font-family: yekan;
+     text-align: center;
+     font-size: 10pt;
+     font-weight: 800;
+     border: 1px solid rgb(198, 205, 213);
+     border-collapse: collapse;
+     -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+     border-radius: 0px;
+     overflow: hidden;
+     margin-bottom: 0 !important;
+     direction: rtl;
+ }
+
+ .admintable tr th { padding: 2px 5px !important; }
+
+ .admintable td {
+     padding: 2px 5px !important;
+     vertical-align: middle !important;
+     border: none !important;
+     border-bottom: #c7ced6 1px solid !important;
+     border-top: #c7ced6 1px solid !important;
+     text-shadow: -1px 0px 1px rgba(149, 150, 150, 1);
+ }
+
+ .admintable td a { margin-top: 5px; }
+
+ .admintable td span { margin-top: 5px; }
+
+ .admintable tr:nth-child(even) { background-color: #fefefe; }
+
+ .admintable tr:nth-child(odd) { background-color: #f7f6fe; }

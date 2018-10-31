@@ -1,4 +1,11 @@
-﻿function login(btn) {
+﻿$(document).on('keypress', function(e) {
+    if (e.which == 13) {
+        login();
+    }
+});
+
+function login() {
+    var btn = $('.greenButton');
     var $btn = $('#imgLoading');
     $btn.show();
     if (CheckRequiredFields()) {
@@ -22,5 +29,32 @@
             window.location.replace(d.message);
         }
         $btn.hide();
+    }
+}
+
+function SendMessage(btn) {
+    var txt = $('#txtPhone');
+    var load = $('#imgLoading');
+    load.show();
+    if (CheckRequiredFields('messagearea')) {
+        ElementRedalert(txt, 'right center', 'لطفا شماره تلفن همرا خود را وارد کنید');
+        load.hide();
+        return;
+    }
+    var e = {
+        url: 'SendMessage',
+        param: { phone: txt.val() },
+        func: status
+    };
+    AjaxCall(e);
+    function status(e) {
+        var d = JSON.parse(e.d);
+        if (d.flag === 0) {
+            ElementRedalert(txt, 'right center', d.message);
+        } else {
+            ElementGreenalert(btn, 'bottom center', d.message);
+            txt.val('');
+        }
+        load.hide();
     }
 }

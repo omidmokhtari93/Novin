@@ -67,26 +67,4 @@ namespace Novin.Class
             httpcontext.Cache.SetNoStore();
         }
     }
-
-    public class Sendsms
-    {
-        public static string WebRequestpost(string url, string parameter)
-        {
-            var outStr = "";
-            var buffer = Encoding.ASCII.GetBytes(parameter);
-            var webReq = (HttpWebRequest)WebRequest.Create(url);
-            webReq.Method = "POST";
-            webReq.ContentType = "application/x-www-form-urlencoded";
-            webReq.ContentLength = buffer.Length;
-            var postData = webReq.GetRequestStream();
-            postData.Write(buffer, 0, buffer.Length);
-            postData.Close();
-            var webResp = (HttpWebResponse)webReq.GetResponse();
-            var answer = webResp.GetResponseStream();
-            var answerr = new StreamReader(answer, Encoding.UTF8);
-            if (outStr != "") { }
-            outStr = answerr.ReadToEnd();
-            return outStr;
-        }
-    }
 }
