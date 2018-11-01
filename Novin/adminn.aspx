@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="bodycontent" runat="server">
     <style>
         .forgetPassArea{width: 100%; text-align: right;padding: 10px 0;font-weight: 800;}
-    </style>
+    </style> 
     <div class="loginBody">
         <img src="images/login.png" class="loginImage"/>
         <label style="display: block;">ورود به حساب مدیریت</label>
