@@ -81,8 +81,6 @@
     <Content Include="Content\kamadatepicker.css" />
     <Content Include="customer\contents\cusmenu.html" />
     <Content Include="customer\contents\custyles.css" />
-    <Content Include="customer\cuspanel\accountcompletion.aspx" />
-    <Content Include="customer\cuspanel\changepass.aspx" />
     <Content Include="customer\cuswebser.asmx" />
     <Content Include="customer\help.aspx" />
     <Content Include="customer\cuspanel\info.aspx" />
@@ -91,7 +89,6 @@
     <Content Include="customer\scripts\cusmain.js" />
     <Content Include="Fonts\BYekan.svg" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
-    <Content Include="images\checked.png" />
     <Content Include="images\house.png" />
     <Content Include="images\key.png" />
     <Content Include="images\loading.gif" />
@@ -117,7 +114,6 @@
     <Content Include="admn\scripts\xlsx.full.min.js" />
     <Content Include="admn\scripts\xlsxworker.js" />
     <Content Include="images\logout.png" />
-    <Content Include="images\medal.png" />
     <Content Include="images\question.png" />
     <Content Include="license.aspx" />
     <Content Include="passrecovery.aspx" />
@@ -187,20 +183,6 @@
     </Compile>
     <Compile Include="Classes\AuthClass.cs" />
     <Compile Include="Classes\SendMessage.cs" />
-    <Compile Include="customer\cuspanel\accountcompletion.aspx.cs">
-      <DependentUpon>accountcompletion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="customer\cuspanel\accountcompletion.aspx.designer.cs">
-      <DependentUpon>accountcompletion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="customer\cuspanel\changepass.aspx.cs">
-      <DependentUpon>changepass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="customer\cuspanel\changepass.aspx.designer.cs">
-      <DependentUpon>changepass.aspx</DependentUpon>
-    </Compile>
     <Compile Include="customer\cuswebser.asmx.cs">
       <DependentUpon>cuswebser.asmx</DependentUpon>
       <SubType>Component</SubType>

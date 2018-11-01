@@ -11,7 +11,7 @@
     <link href="/Content/font-awesome.min.css" rel="stylesheet" />
     <script src="/Scripts/kamadatepicker.js"></script>
     <link href="/Content/kamadatepicker.css" rel="stylesheet" />
-    <script src="<%= ResolveUrl("~") %>customer/scripts/cusmain.js"></script>
+    <script src="scripts/cusmain.js"></script>
     <script src="/Scripts/notify.min.js"></script>
     <link href="contents/custyles.css" rel="stylesheet" />
     <title></title>
