@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-10">
             <div class="img-thumbnail">
-
+                <label class="counter">1000</label>
             </div>
         </div>
     </div>
